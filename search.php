@@ -1,7 +1,6 @@
 <?
 if(isset($_POST['keyword']) and $_POST['keyword'] != '')
 {
-	require "dom.php";
 	$page = ( isset($_POST['page']) ? $_POST['page'] : 1 );
 	$url = 'http://www.nhaccuatui.com/tim-kiem/bai-hat?q='.str_replace(' ', '+', $_POST['keyword']).'&page='.$page;
 
@@ -31,11 +30,47 @@ if(isset($_POST['keyword']) and $_POST['keyword'] != '')
 		echo '<tr>';
 		foreach($entry->childNodes as $i => $song)
 		{
+			// echo $i.'-'.var_dump($song).'<br><br><br><br><br>';
+
 			switch ($i) {
 				case 1:
 					echo '<td>';
-					echo $song->nodeValue;
+					foreach ($song->childNodes as $info) {
+						// get h4 tag
+						if(@$info->tagName == 'h4') {
+							// get a tag
+						foreach ($info->childNodes as $i) {
+							if(@$i->tagName == 'a') 
+								{
+									foreach ($i->attributes as $v) {
+										// get href attr in a tag
+										if($v->name == 'href')
+											echo '<a class="song" href="#" link="'.$v->value.'">'.trim($song->nodeValue).'</a>';
+										if($v->name == 'class')
+										{
+											switch ($v->value) {
+												case 'mof':
+													echo '<span class="label">official</span>';
+													break;
+												case 'm320':
+													echo '<span class="label label-success">320 kbps</span>';
+													break;
+												
+												default:
+													# code...
+													break;
+											}
+										}
+									}
+										
+								}
+						}
+						}
+						// }
+					}
+
 					echo '</td>';
+
 					break;
 
 				case 3:
@@ -43,7 +78,13 @@ if(isset($_POST['keyword']) and $_POST['keyword'] != '')
 					echo '<p class="pull-right">'.$song->nodeValue.'</p>';
 					echo '<td>';
 					break;
-				
+				// case 5:
+				// foreach ($song->attributes as $v) {
+				// 	if($v->name == 'id')
+				// 		var_dump($v->value).'<br>';
+				// 	var_dump($dom->getElementById($v->value));
+				// }
+					break;				
 				default:
 					# code...
 					break;
@@ -58,27 +99,29 @@ if(isset($_POST['keyword']) and $_POST['keyword'] != '')
 	}
 	
 	echo '</table>';
-	// $tags = $xpath->query("*/div[@class='new-song']");
-	
- //    var_dump(($tags));
-// $data = json_decode(curl_exec($ch));
+?>
 
-// if($data == null)
-// {
-// 	echo 'Server Error';
-// 	die();
-// }
+<script>
+$('.song').click(function(){
+	var link =  $(this).attr('link');
+	$.ajax({
+		type: 'POST',
+		data: 'url='+link,
+		url: 'link.php',
+		success: function(res){
+			if($('#player'))
+			{
+				$('#player').remove();
+				$('.me-plugin').remove();
+			}
+				
+			$(res).appendTo('body');
+		}
+	});
+})
+</script>
 
-// if($data->error_message != 'Success')
-// {
-// 	echo 'No song found';
-// 	die();
-// }
-
-
-// var_dump($data->data);
-
-
+<?
 }
 else
 {
