@@ -9,10 +9,6 @@
 
     <!-- Le styles -->
     <link href="resources/css/bootstrap.min.css" rel="stylesheet">
-
-    <script src="resources/js/jquery.min.js"></script>
-    <script src="resources/js/myjs.js"></script>
-    <script src="resources/js/bootstrap.min.js"></script>
     
     <style type="text/css">
       body {
@@ -59,6 +55,7 @@
         outline: 0 none;
       }
       div#search_result{
+        height: 200px;
         max-height: 350px;
         overflow-y: auto;
       }
@@ -91,12 +88,7 @@
         <ul class="nav nav-pills pull-left">
             <li class="active"><a href="#" class="clear" style=" width: 100%;" ><i class="icon-white icon-music"></i> nct lite</a></li>
         </ul>
-        <div class="pull-right">
-        <iframe  src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.familug.org&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=true&amp;font=segoe+ui&amp;colorscheme=light&amp;action=like&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:21px;" allowTransparency="true"></iframe>
-        <br/>
-        <!-- Place this tag where you want the +1 button to render. -->
-        <div class="g-plusone pull-right" data-size="medium" data-annotation="inline" data-width="120"></div>
-        </div>
+        
         <br/>
         <br/>
       <hr style="margin-top: 16px">
@@ -106,11 +98,15 @@
             <br>
             <input class="input-xxlarge" id="search_input" type="text" placeholder="Enter Song Name Here > Enter" required="">
             <br><br>
-            <div id="search_result" style="display: none"></div>
+            <div id="search_result" style=""></div>
             <div style="display: none" class="pagination pagination-mini"><ul><li class="pull-left"><a class="prev_btn">Prev</a></li><li class="pull-left"><a class="next_btn">Next</a></li></ul></div>
         </div>
         
         </div>
+
+        <script src="resources/js/jquery.min.js"></script>
+        <script src="resources/js/myjs.js"></script>
+        <script src="resources/js/bootstrap.min.js"></script>
         <script type="text/javascript">
         function func_search()
         {
@@ -126,15 +122,10 @@
                     data: 'keyword='+keyword+'&page='+page,
 
                     success: function(res){
-                    
-                        search_result.slideUp(200, function(){
                             search_result.html(res);
                             search_result.slideDown(500, function(){
                             $('.pagination').show();
                         });
-                        });
-                        
-                        
                     },
 
                 });
@@ -182,8 +173,10 @@
         $('#search_input').focus();
 
         $('.clear').click(function(){
-          $('#search_result').slideUp();
+          $('#search_result').html('');
         });
+
+        $(".contact").popover();
         });
         </script>
         <!-- Place this tag after the last +1 button tag. -->
@@ -198,8 +191,30 @@
         </script>
 
     </div> <!-- /container -->
-    <div class="footer form-actions" style="bottom: 0; position: fixed; width: 100%; left: 0">
-        <p>&copy; 2013</p>
+    <hr>
+    <div class="footer" style="">
+      <center>
+      <small>
+        <a>lamdt@familug.org</a>
+        <br />
+        <a href="http://www.familug.org" target="_blank">http://www.familug.org</a>
+        <br />
+        &copy; 2013</small>
+        <br>
+        <iframe class="github-btn" width="112px" scrolling="0" height="20px" frameborder="0" allowtransparency="true" src="http://ghbtns.com/github-btn.html?user=lamoanh&repo=nct_lite&type=watch&count=true"></iframe>
+      
+      <iframe class="github-btn" width="112px" scrolling="0" height="20px" frameborder="0" allowtransparency="true" src="http://ghbtns.com/github-btn.html?user=lamoanh&repo=nct_lite&type=fork&count=true"></iframe>
+      
+      <iframe  src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.familug.org&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=true&amp;font=segoe+ui&amp;colorscheme=light&amp;action=like&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:110px; height:21px;" allowTransparency="true"></iframe>
+        <!-- Place this tag where you want the +1 button to render. -->
+        <span class="g-plusone pull-right" data-size="medium" data-annotation="inline" data-width="120"></span>
+        
+      </center>
+
+      <script type="text/javascript">
+        
+      </script>
+        
     </div>
   </body>
 </html>
