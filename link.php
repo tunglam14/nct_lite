@@ -35,9 +35,9 @@ $song = get_mp3($_POST['url']);
 if($song == 'ERROR: Invalid Login')
 {
 ?>
-<script type="text/javascript">
-$('a[link="<?= ($_POST['url']) ?>"]').addClass('muted').html('Require Login');
-</script>
+	<script type="text/javascript">
+		$('a[link="<?= ($_POST['url']) ?>"]').addClass('muted').html('Require Login');
+	</script>
 <?
 }
 else
@@ -47,7 +47,11 @@ else
     <link rel="stylesheet" href="build/mediaelementplayer.min.css" />
 <audio id="player2" src="<?= $song ?>" type="audio/mp3" controls="controls" autoplay="">		
 </audio>
+
 <script>
+$('.playing').remove();
+$('a[link="<?= ($_POST['url']) ?>"]').html( '<i class="icon icon-music playing"></i> ' + $('a[link="<?= ($_POST['url']) ?>"]').html());
+
 $('audio,video').mediaelementplayer(
 	{
 		loop: true,
