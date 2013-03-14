@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>nct lite</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lite Music">
+    <meta name="author" content="lamdt">
+
+    <!-- Le styles -->
+    <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="resources/js/jquery.min.js"></script>
+    <script src="resources/js/myjs.js"></script>
+    <script src="resources/js/bootstrap.min.js"></script>
+    
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
+
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 60px 0;
+        text-align: center;
+        font-size: 12px;
+      }
+      .jumbotron h1 {
+        font-size: 72px;
+        line-height: 1;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      .lead{
+        font-size: 15px;
+      }
+      .prev_btn, .next_btn{
+        cursor: pointer;
+      }
+      .label{
+        font-size: 10px;
+      }
+      input#search_input{
+        border-color: rgba(82, 168, 236, 0.8);
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
+        outline: 0 none;
+      }
+      div#search_result{
+        max-height: 500px;
+        overflow-y: auto;
+      }
+      ul.nav li a{
+        cursor: auto;
+      }
+      .masthead{
+        width: 100%;
+      }
+    </style>
+    <link href="resources/css/bootstrap-responsive.min.css" rel="stylesheet">
+
+    <script type="text/javascript">
+
+    var page = 1;
+
+    </script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="resources/js/html5shiv.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <div class="container-narrow">
+        <div class="masthead">
+        <ul class="nav nav-pills pull-left">
+            <li class="active"><a href="#" style=" width: 100%;" ><i class="icon-white icon-music"></i> nct lite</a></li>
+        </ul>
+        <div class="pull-right">
+        <iframe  src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.familug.org&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=true&amp;font=segoe+ui&amp;colorscheme=light&amp;action=like&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:75px; height:21px;" allowTransparency="true"></iframe>
+        <br/>
+        <!-- Place this tag where you want the +1 button to render. -->
+        <div class="g-plusone pull-right" data-size="medium" data-annotation="inline" data-width="120"></div>
+        </div>
+        <br/>
+        <br/>
+      <hr style="margin-top: 16px">
+        <div class="jumbotron">
+        <div class="lead">
+            Tìm Kiếm:
+            <br>
+            <input class="input-xxlarge" id="search_input" type="text" placeholder="Enter Song Name Here > Enter">
+            <br>
+            <div id="search_result" style="display: none"></div>
+            <div style="display: none" class="pagination pagination-small"><ul><li class="pull-left"><a class="prev_btn">Prev</a></li><li class="pull-left"><a class="next_btn">Next</a></li></ul></div>
+        </div>
+        
+        </div>
+        <script type="text/javascript">
+        function func_search()
+        {
+                var keyword = $('#search_input').val();
+                //loading_bar_animated.gif
+                var search_result = $('#search_result');
+
+                $(search_result).hide().html('<img src="resources/img/loading_bar_animated.gif">').show();
+
+                $.ajax({
+                    type: 'post',
+                    url: 'search.php',
+                    data: 'keyword='+keyword+'&page='+page,
+
+                    success: function(res){
+                    
+                        search_result.slideUp(200, function(){
+                            search_result.html(res);
+                            search_result.slideDown(500, function(){
+                            $('.pagination').show();
+                        });
+                        });
+                        
+                        
+                    },
+
+                });
+        }
+
+        $('#search_input').live('keyup', function (e) {
+            // console.log(e.which);
+            // search when press enter or space
+            // if(e.which == 32 || e.which == 13)
+            if(e.which == 13)
+            {
+                func_search();
+            }
+        });
+
+        $(document).ready(function(){
+        $('.prev_btn').click(function(){
+            if( page > 1)
+            {
+                page -= 1;
+                $('html, body').animate({
+                        scrollTop: 0
+                    }, 500, function(){
+                    func_search();
+                });
+            }
+            else
+            {
+
+            }
+        });
+
+        $('.next_btn').click(function(){
+            if( page > 0)
+            {
+                page += 1;
+                $('html, body').animate({
+                        scrollTop: 0
+                    }, 500, function(){
+                    func_search();
+                });
+                
+            }
+        });
+        $('#search_input').focus();
+        });
+        </script>
+        <!-- Place this tag after the last +1 button tag. -->
+        <script type="text/javascript">
+          window.___gcfg = {lang: 'vi'};
+
+          (function() {
+            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+            po.src = 'https://apis.google.com/js/plusone.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+          })();
+        </script>
+
+    </div> <!-- /container -->
+    <div class="footer form-actions" style="bottom: 0; position: fixed; width: 100%; left: 0">
+        <p>&copy; 2013</p>
+    </div>
+  </body>
+</html>
