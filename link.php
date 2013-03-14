@@ -36,7 +36,7 @@ if($song == 'ERROR: Invalid Login')
 {
 ?>
 	<script type="text/javascript">
-		$('a[link="<?= ($_POST['url']) ?>"]').addClass('muted').html('Require Login');
+		song.addClass('muted').html('Require Login');
 	</script>
 <?
 }
@@ -49,8 +49,12 @@ else
 </audio>
 
 <script>
+var song = $('a[link="<?= ($_POST['url']) ?>"]');
+// set title
+document.title = song.html() + ' | nct lite';
+
 $('.playing').remove();
-$('a[link="<?= ($_POST['url']) ?>"]').html( '<i class="icon icon-music playing"></i> ' + $('a[link="<?= ($_POST['url']) ?>"]').html());
+song.html( '<i class="icon icon-music playing"></i> ' + song.html());
 
 $('audio,video').mediaelementplayer(
 	{
