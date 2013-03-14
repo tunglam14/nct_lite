@@ -103,8 +103,9 @@
             </div>
             
             <br><br>
+            <a href="#" class="play_random">ngẫu nhiên</a>
             <div id="search_result" style="">
-              <a href="#" class="play_random">ngẫu nhiên</a>
+              
             </div>
             <div style="display: none" class="pagination pagination-mini"><ul><li class="pull-left"><a class="prev_btn">Prev</a></li><li class="pull-left"><a class="next_btn">Next</a></li></ul></div>
         </div>
@@ -129,6 +130,7 @@
                     data: 'keyword='+keyword+'&page='+page,
 
                     success: function(res){
+                            $('.play_random').hide();
                             search_result.html(res);
                             search_result.slideDown(500, function(){
                             $('.pagination').show();
@@ -197,6 +199,8 @@
 
         $('.clear').click(function(){
           $('#search_result').html('');
+          $('.play_random').show();
+          $('.pagination').hide();
         });
 
         $(".contact").popover();
