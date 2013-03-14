@@ -96,9 +96,15 @@
         <div class="lead">
             Tìm Kiếm:
             <br>
-            <input class="input-xxlarge" id="search_input" type="text" placeholder="Enter Song Name Here > Enter" required="">
+            <div class="input-append">
+            <input class="input-xxlarge" id="search_input" type="text" placeholder="Enter Song Name Here > Enter" required>
+            
+            </div>
+            
             <br><br>
-            <div id="search_result" style=""></div>
+            <div id="search_result" style="">
+              <a href="#" class="play_random">play random</a>
+            </div>
             <div style="display: none" class="pagination pagination-mini"><ul><li class="pull-left"><a class="prev_btn">Prev</a></li><li class="pull-left"><a class="next_btn">Next</a></li></ul></div>
         </div>
         
@@ -139,6 +145,22 @@
             {
                 func_search();
             }
+        });
+
+        $('.play_random').click(function(){
+          $.ajax({
+            type: "GET",
+            url: "random.php",
+            success: function(res){
+              if($('#player'))
+              {
+                $('#player').remove();
+                $('.me-plugin').remove();
+              }
+                
+              $(res).appendTo('body');
+            }
+          });
         });
 
         $(document).ready(function(){
@@ -191,8 +213,8 @@
         </script>
 
     </div> <!-- /container -->
-    <hr>
-    <div class="footer" style="">
+    <hr style="margin-bottom: 10px">
+    <div class="footer" style="margin-bottom: 10px">
       <center>
       <small>
         <a>lamdt@familug.org</a>

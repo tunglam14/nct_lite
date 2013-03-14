@@ -28,7 +28,7 @@ function get_mp3($url)
 }
 ?>
 
-<div id="player" style="position: fixed; bottom: 0; right: 0;">
+<div id="player" style="position: fixed; bottom: 0; right: 0; background: #000; width: 100%">
 <?
 
 $song = get_mp3($_POST['url']);
@@ -44,17 +44,26 @@ else
 {
 ?>
 <script src="build/mediaelement-and-player.min.js"></script>
+<script type="text/javascript">
+var song = $('a[link="<?= ($_POST['url']) ?>"]');
+if( song.html() == null)
+{
+	song = $("<a link=''<?= ($_POST['url']) ?>''><?= $_POST['name'] ?> </a>");	
+}
+
+var song_name = song.html();
+</script>
     <link rel="stylesheet" href="build/mediaelementplayer.min.css" />
-<audio id="player2" src="<?= $song ?>" type="audio/mp3" controls="controls" autoplay="">		
-</audio>
+    <info style="color: #fff"></info>
+	<audio width="100%" id="player2" src="<?= $song ?>" type="audio/mp3" controls="controls" autoplay="">		
+	</audio>
 
 <script>
-var song = $('a[link="<?= ($_POST['url']) ?>"]');
-// set title
-document.title = song.html() + ' | nct lite';
-
+$('info').html('Song: ' + song_name + '&bull; <a href="<?= $song ?>" target="_blank">Download</a>');
 $('.playing').remove();
-song.html( '<i class="icon icon-music playing"></i> ' + song.html());
+// set title
+document.title = song_name + ' | nct lite';
+song.html( '<i class="icon icon-music playing"></i> ' + song_name);
 
 $('audio,video').mediaelementplayer(
 	{
