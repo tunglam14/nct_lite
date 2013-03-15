@@ -129,7 +129,7 @@
       
       <iframe class="github-btn" width="112px" scrolling="0" height="20px" frameborder="0" allowtransparency="true" src="http://ghbtns.com/github-btn.html?user=lamoanh&repo=nct_lite&type=fork&count=true"></iframe>
       
-      <iframe  src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.familug.org&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=true&amp;font=segoe+ui&amp;colorscheme=light&amp;action=like&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:110px; height:21px;" allowTransparency="true"></iframe>
+      <iframe  src="//www.facebook.com/plugins/like.php?href=http://<?= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"] ?>&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=true&amp;font=segoe+ui&amp;colorscheme=light&amp;action=like&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:110px; height:21px;" allowTransparency="true"></iframe>
         <!-- Place this tag where you want the +1 button to render. -->
         <span class="g-plusone pull-right" data-size="medium" data-annotation="inline" data-width="120"></span>
         
