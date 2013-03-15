@@ -12,11 +12,11 @@ $dom = new DOMDocument();
 
 $data = array();
 foreach($dom->getElementsByTagName('title') as $v)
-	$data['name'] = trim($v->textContent);
+	$data['name'] = str_replace('\'', '', trim($v->textContent));
 foreach($dom->getElementsByTagName('creator') as $v)
-	$data['singer'] = trim($v->textContent);
+	$data['singer'] = str_replace('\'', '', trim($v->textContent));
 foreach($dom->getElementsByTagName('location') as $v)
-	$data['link'] = trim($v->textContent);
+	$data['link'] = str_replace('\'', '', trim($v->textContent));
 
 $data['key'] = $songid;
 ?>

@@ -4,9 +4,9 @@ $dom = new DOMDocument();
 
 $data = array();
 foreach($dom->getElementsByTagName('title') as $v)
-	$data['song'][] = trim($v->textContent);
+	$data['song'][] = str_replace('\'', '', trim($v->textContent));
 foreach($dom->getElementsByTagName('location') as $v)
-	$data['url'][] = trim($v->textContent);
+	$data['url'][] = str_replace('\'', '', trim($v->textContent));
 foreach($dom->getElementsByTagName('creator') as $v)
 	$data['singer'][] = str_replace('\'', '', trim($v->textContent));
 
