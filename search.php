@@ -2,7 +2,10 @@
 if(isset($_POST['keyword']) and $_POST['keyword'] != '')
 {
 	$page = ( isset($_POST['page']) ? $_POST['page'] : 1 );
-	$url = 'http://www.nhaccuatui.com/tim-kiem/bai-hat?q='.str_replace(' ', '+', $_POST['keyword']).'&page='.$page;
+	if($page == 1)
+		$url = 'http://www.nhaccuatui.com/tim-kiem?q='.str_replace(' ', '+', $_POST['keyword']).'&page='.$page;
+	else
+		$url = 'http://www.nhaccuatui.com/tim-kiem/bai-hat?q='.str_replace(' ', '+', $_POST['keyword']).'&page='.$page;
 
 
 // // $string = 'key='.$_POST['keyword'].'&url=http://www.nhaccuatui.com/ajax/search';
