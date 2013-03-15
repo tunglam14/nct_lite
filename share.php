@@ -138,7 +138,7 @@
       <script type="text/javascript">
         
       </script>
-      <img src="2.jpg" style="display: none;">
+      <img src="icon.gif" style="display: none;">
     </div>
   </body>
 </html>
