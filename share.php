@@ -97,7 +97,6 @@
 				data: "sid=<?= $_GET['sid'] ?>",
 				url: '../get_song_info.php',
 				success: function(res){
-					console.log(res);
 					var obj = jQuery.parseJSON(res);
 					$('info').html('Bài hát: '+obj.song+ ' - Ca Sĩ: '+obj.author);
 					document.title = 'Bài hát: '+obj.song+ ' - Ca Sĩ: '+obj.author + ' | Lite Music';
@@ -138,7 +137,7 @@
       <script type="text/javascript">
         
       </script>
-      <img src="logo.jpg" style="display: none;">
+      <img src="../logo.jpg" style="display: none;">
       <script type="text/javascript">
 
   var _gaq = _gaq || [];
