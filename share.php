@@ -16,7 +16,7 @@
     <meta charset="utf-8">
     <title>Lite Music | mp3.familug.org</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tìm Nhanh - Nghe Nhanh">
+    <meta name="description" content="Tìm Cái - Nghe Luôn">
     <meta name="author" content="lamdt">
 
     <!-- Le styles -->
