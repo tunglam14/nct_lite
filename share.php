@@ -1,25 +1,13 @@
 <?
 	if(!isset($_GET['sid'])) header("Location:../index.html");
 
-	$api_result = file_get_contents("http://www.nhaccuatui.com/download/song/".$_GET['sid']);
-	 
-	$r = json_decode($api_result);
-	 
-	if($r == null)
-	{
-		header("Location:../index.html");
-		exit(0);
-	}
-	 
-	// check error_code
-	if($r->error_code != 0)
-	{
-		header("Location:../index.html");
-	}
-	// get download link
-	$song = $r->data->stream_url;
-	$data['key'] = $_GET['sid'];
+	$songid = $_GET['sid'];
 
+  include "convert_song_code.php";
+
+  $song = $data;
+
+  if(empty($song['name'])) header("Location:../index.html");
 ?>
 
 <!DOCTYPE html>
@@ -72,10 +60,7 @@
         	<script src="../build/mediaelement-and-player.min.js"></script>
 		
 		    <link rel="stylesheet" href="../build/mediaelementplayer.min.css" />
-		    <info style="color:"></info>
-
-			<audio width="100%" id="player2" src="<?= $song ?>" type="audio/mp3" controls="controls" autoplay="">		
-			</audio>
+		    <? include "player.php"; ?>
 
 			<br>
 			<center>
@@ -85,32 +70,6 @@
 		<script>
 		// set title
 
-		$('audio,video').mediaelementplayer(
-			{
-				loop: true,
-				features: ['playpause','progress','current','duration','tracks','volume'],
-			}
-			);
-		$(document).ready(function(){
-			$.ajax({
-				type: "GET",
-				data: "sid=<?= $_GET['sid'] ?>",
-				url: '../get_song_info.php',
-				success: function(res){
-					var obj = jQuery.parseJSON(res);
-					$('info').html('Bài hát: '+obj.song+ ' - Ca Sĩ: '+obj.author);
-					document.title = 'Bài hát: '+obj.song+ ' - Ca Sĩ: '+obj.author + ' | Lite Music';
-				}
-			});
-
-			window.___gcfg = {lang: 'vi'};
-
-	          (function() {
-	            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-	            po.src = 'https://apis.google.com/js/plusone.js';
-	            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-	          })();
-		});
 		</script>
 
     </div> <!-- /container -->
@@ -131,8 +90,6 @@
       <iframe  src="//www.facebook.com/plugins/like.php?href=http://<?= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"] ?>&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=true&amp;font=segoe+ui&amp;colorscheme=light&amp;action=like&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:110px; height:21px;" allowTransparency="true"></iframe>
         <!-- Place this tag where you want the +1 button to render. -->
         <span class="g-plusone pull-right" data-size="medium" data-annotation="inline" data-width="120"></span>
-
-        <a>Bookmark</a>
         
       </center>
 

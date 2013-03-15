@@ -107,6 +107,7 @@ if(isset($_POST['keyword']) and $_POST['keyword'] != '')
 <script>
 $('.song').click(function(){
 	var link =  $(this).attr('link');
+	$('#loading_item').slideDown();
 	$.ajax({
 		type: 'POST',
 		data: 'url='+link,
@@ -117,7 +118,8 @@ $('.song').click(function(){
 				$('#player').remove();
 				$('.me-plugin').remove();
 			}
-				
+
+			$('#loading_item').slideUp();	
 			$(res).appendTo('body');
 		}
 	});

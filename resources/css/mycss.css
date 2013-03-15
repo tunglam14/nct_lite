@@ -53,3 +53,12 @@ body {
       .masthead{
         width: 100%;
       }
+      span#loading_item{
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 20px;
+        background: #FFD3D3;
+        padding: 10px;
+        display: none;
+      }

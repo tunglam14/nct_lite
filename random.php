@@ -7,6 +7,9 @@ foreach($dom->getElementsByTagName('title') as $v)
 	$data['song'][] = trim($v->textContent);
 foreach($dom->getElementsByTagName('location') as $v)
 	$data['url'][] = trim($v->textContent);
+foreach($dom->getElementsByTagName('creator') as $v)
+	$data['singer'] = trim($v->textContent);
+
 foreach($dom->getElementsByTagName('info') as $v)
 {
 	$url = trim($v->textContent);
@@ -45,7 +48,7 @@ function playsong()
 
 			$('<info>').attr('style','color: #fff').prependTo('#player');
 			$('info').html('Bài Hát: ' + obj.song + ' &bull; <a href="'+obj.url+'" target="_blank">Tải Về</a>' + ' &bull; <a href="s/'+obj.share+'" >Link</a>');
-			document.title = obj.song + ' | Lite Music';
+			document.title = 'Bài Hát: '+obj.song + ' | Ca Sĩ: '+obj.singer+' | Lite Music | mp3.familug.org';
         });
 
     },
@@ -77,6 +80,6 @@ $('<audio>').attr('id','player2').attr('width','100%').attr('type','audio/mp3').
 playsong();
 $('<info>').attr('style','color: #fff').prependTo('#player');
 $('info').html('Bài Hát: ' + obj.song + ' &bull; <a href="'+obj.url+'" target="_blank">Tải Về</a>' + ' &bull; <a href="s/'+obj.share+'" >Link</a>');
-document.title = obj.song + ' | Lite Music';
+document.title = 'Bài Hát: '+obj.song + ' | Ca Sĩ: '+obj.singer+' | Lite Music | mp3.familug.org';
 });
 </script>

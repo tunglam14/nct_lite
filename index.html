@@ -31,7 +31,9 @@
 </head>
 
 <body>
+
     <div class="container-narrow">
+        <span id="loading_item">loading...</span>
         <div class="masthead">
         <ul class="nav nav-pills pull-left">
             <li class="active"><a href="#" class="clear" style=" width: 100%;" ><i class="icon-white icon-music"></i> Lite Music</a></li>
@@ -70,7 +72,7 @@
                 var search_result = $('#search_result');
 
                 $(search_result).hide().html('<img src="resources/img/loading_bar_animated.gif">').show();
-
+                $('#loading_item').slideDown();
                 $.ajax({
                     type: 'post',
                     url: 'search.php',
@@ -81,6 +83,7 @@
                             search_result.html(res);
                             search_result.slideDown(500, function(){
                             $('.pagination').show();
+                            $('#loading_item').slideUp();
                         });
                     },
 
@@ -99,6 +102,7 @@
 
         $('.play_random').click(function(){
           $('#search_result').html('<img src="resources/img/loading_bar_animated.gif">').show();
+          $('#loading_item').slideDown();
           $.ajax({
             type: "GET",
             url: "random.php",
@@ -110,6 +114,7 @@
               }
               $('#search_result').html('');
               $(res).appendTo('body');
+              $('#loading_item').slideUp();
             }
           });
         });
