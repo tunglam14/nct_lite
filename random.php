@@ -45,7 +45,7 @@ function playsong()
 
 			$('<info>').attr('style','color: #fff').prependTo('#player');
 			$('info').html('Bài Hát: ' + obj.song + ' &bull; <a href="'+obj.url+'" target="_blank">Tải Về</a>' + ' &bull; <a href="s/'+obj.share+'" >Link</a>');
-
+			document.title = obj.song + ' | Lite Music';
         });
 
     },
@@ -77,5 +77,6 @@ $('<audio>').attr('id','player2').attr('width','100%').attr('type','audio/mp3').
 playsong();
 $('<info>').attr('style','color: #fff').prependTo('#player');
 $('info').html('Bài Hát: ' + obj.song + ' &bull; <a href="'+obj.url+'" target="_blank">Tải Về</a>' + ' &bull; <a href="s/'+obj.share+'" >Link</a>');
+document.title = obj.song + ' | Lite Music';
 });
 </script>
