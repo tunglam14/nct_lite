@@ -52,7 +52,7 @@
     <div class="container-narrow">
         <div class="masthead">
         <ul class="nav nav-pills pull-left">
-            <li class="active"><a href="http://<?= $_SERVER["SERVER_NAME"] ?>" class="" style=" width: 100%;" ><i class="icon-white icon-music"></i> nct lite</a></li>
+            <li class="active"><a href="http://<?= $_SERVER["SERVER_NAME"] ?>" class="" style=" width: 100%;" ><i class="icon-white icon-music"></i> Lite Music</a></li>
         </ul>
         
         <br/>
@@ -69,7 +69,7 @@
         <script src="../resources/js/myjs.js"></script>
         <script src="../resources/js/bootstrap.min.js"></script>
         
-        <script src="../build/mediaelement-and-player.min.js"></script>
+        	<script src="../build/mediaelement-and-player.min.js"></script>
 		
 		    <link rel="stylesheet" href="../build/mediaelementplayer.min.css" />
 		    <info style="color:"></info>
@@ -79,7 +79,7 @@
 
 			<br>
 			<center>
-			<a href="http://<?= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"] ?>" target="_blank">Link</a> | <a href="<?= $song ?>" target="_blank">Download</a>
+			<a href="http://<?= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"] ?>" >Link</a> | <a href="<?= $song ?>" target="_blank">Download</a>
 			</center>
 
 		<script>

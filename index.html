@@ -34,7 +34,7 @@
     <div class="container-narrow">
         <div class="masthead">
         <ul class="nav nav-pills pull-left">
-            <li class="active"><a href="#" class="clear" style=" width: 100%;" ><i class="icon-white icon-music"></i> nct lite</a></li>
+            <li class="active"><a href="#" class="clear" style=" width: 100%;" ><i class="icon-white icon-music"></i> Lite Music</a></li>
         </ul>
         
         <br/>
@@ -98,6 +98,7 @@
         });
 
         $('.play_random').click(function(){
+          $('#search_result').html('<img src="resources/img/loading_bar_animated.gif">').show();
           $.ajax({
             type: "GET",
             url: "random.php",
@@ -107,7 +108,7 @@
                 $('#player').remove();
                 $('.me-plugin').remove();
               }
-                
+              $('#search_result').html('');
               $(res).appendTo('body');
             }
           });
