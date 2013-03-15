@@ -65,7 +65,7 @@ var song_name = song.html();
 	</audio>
 
 <script>
-$('info').html('Bài Hát: ' + song_name + ' &bull; <a href="<?= $song ?>" target="_blank">Tải Về</a>' + ' &bull; <a href="s/<?= @$song_info['key'] ?>" target="_blank">Link</a>');
+$('info').html('Bài Hát: ' + song_name + ' &bull; <a href="<?= $song ?>" target="_blank">Tải Về</a>' + ' &bull; <a href="s/<?= @$song_info['key'] ?>" >Link</a>');
 $('.playing').remove();
 // set title
 document.title = song_name + ' | nct lite';

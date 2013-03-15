@@ -28,22 +28,16 @@
     <meta charset="utf-8">
     <title>nct lite</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Lite Music">
+    <meta name="description" content="Tìm Nhanh - Nghe Nhanh">
     <meta name="author" content="lamdt">
 
     <!-- Le styles -->
     <link href="../resources/css/bootstrap.min.css" rel="stylesheet">
     <link href="../resources/css/mycss.css" rel="stylesheet">
-    
-    <style type="text/css">
-      
-    </style>
     <link href="../resources/css/bootstrap-responsive.min.css" rel="stylesheet">
 
     <script type="text/javascript">
-
     var page = 1;
-
     </script>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -58,7 +52,7 @@
     <div class="container-narrow">
         <div class="masthead">
         <ul class="nav nav-pills pull-left">
-            <li class="active"><a href="../index.html" class="" style=" width: 100%;" ><i class="icon-white icon-music"></i> nct lite</a></li>
+            <li class="active"><a href="http://<?= $_SERVER["SERVER_NAME"] ?>" class="" style=" width: 100%;" ><i class="icon-white icon-music"></i> nct lite</a></li>
         </ul>
         
         <br/>
@@ -109,19 +103,16 @@
 					document.title = 'Bài hát: '+obj.song+ ' - Ca Sĩ: '+obj.author + ' | nct lite';
 				}
 			});
+
+			window.___gcfg = {lang: 'vi'};
+
+	          (function() {
+	            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+	            po.src = 'https://apis.google.com/js/plusone.js';
+	            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+	          })();
 		});
 		</script>
-
-        <!-- Place this tag after the last +1 button tag. -->
-        <script type="text/javascript">
-          window.___gcfg = {lang: 'vi'};
-
-          (function() {
-            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-            po.src = 'https://apis.google.com/js/plusone.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-          })();
-        </script>
 
     </div> <!-- /container -->
     <hr style="margin-bottom: 10px">
@@ -147,7 +138,7 @@
       <script type="text/javascript">
         
       </script>
-        
+      <img src="2.jpg" style="display: none;">
     </div>
   </body>
 </html>
