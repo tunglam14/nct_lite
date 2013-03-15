@@ -118,7 +118,9 @@ $('.song').click(function(){
 			$(res).appendTo('body');
 		}
 	});
+	
 })
+
 </script>
 
 <?
