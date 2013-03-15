@@ -26,7 +26,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>nct lite</title>
+    <title>Lite Music</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Tìm Nhanh - Nghe Nhanh">
     <meta name="author" content="lamdt">
@@ -100,7 +100,7 @@
 					console.log(res);
 					var obj = jQuery.parseJSON(res);
 					$('info').html('Bài hát: '+obj.song+ ' - Ca Sĩ: '+obj.author);
-					document.title = 'Bài hát: '+obj.song+ ' - Ca Sĩ: '+obj.author + ' | nct lite';
+					document.title = 'Bài hát: '+obj.song+ ' - Ca Sĩ: '+obj.author + ' | Lite Music';
 				}
 			});
 
@@ -138,7 +138,7 @@
       <script type="text/javascript">
         
       </script>
-      <img src="icon.gif" style="display: none;">
+      <img src="logo.jpg" style="display: none;">
     </div>
   </body>
 </html>
