@@ -8,7 +8,7 @@ foreach($dom->getElementsByTagName('title') as $v)
 foreach($dom->getElementsByTagName('location') as $v)
 	$data['url'][] = trim($v->textContent);
 foreach($dom->getElementsByTagName('creator') as $v)
-	$data['singer'] = trim($v->textContent);
+	$data['singer'][] = str_replace('\'', '', trim($v->textContent));
 
 foreach($dom->getElementsByTagName('info') as $v)
 {
@@ -47,7 +47,7 @@ function playsong()
 			playsong();
 
 			$('<info>').attr('style','color: #fff').prependTo('#player');
-			$('info').html('Bài Hát: ' + obj.song + ' &bull; <a href="'+obj.url+'" target="_blank">Tải Về</a>' + ' &bull; <a href="s/'+obj.share+'" >Link</a>');
+			$('info').html('Bài Hát: ' + obj.song + '  &bull; Ca Sĩ: '+obj.singer+' &bull; <a href="'+obj.url+'" target="_blank">Tải Về</a>' + ' &bull; <a href="s/'+obj.share+'" >Link</a>');
 			document.title = 'Bài Hát: '+obj.song + ' | Ca Sĩ: '+obj.singer+' | Lite Music | mp3.familug.org';
         });
 
@@ -61,7 +61,7 @@ function get_song()
 	<?
 		for($i = 0; $i < count($data['song']); $i++)
 		{
-			echo 'song_list['.$i.'] =  \' {"song":"'.str_replace('\'', '&#39;', $data['song'][$i]).'","url":"'.$data['url'][$i].'","share":"'.$data['share'][$i].'"} \';';
+			echo 'song_list['.$i.'] =  \' {"song":"'.str_replace('\'', '&#39;', $data['song'][$i]).'","url":"'.$data['url'][$i].'","share":"'.$data['share'][$i].'","singer":"'.$data['singer'][$i].'"} \';';
 		}
 	?>
 
@@ -79,7 +79,7 @@ var obj = jQuery.parseJSON(song);
 $('<audio>').attr('id','player2').attr('width','100%').attr('type','audio/mp3').attr('controls','controls').attr('autoplay','').attr('src',obj.url).prependTo('#player');
 playsong();
 $('<info>').attr('style','color: #fff').prependTo('#player');
-$('info').html('Bài Hát: ' + obj.song + ' &bull; <a href="'+obj.url+'" target="_blank">Tải Về</a>' + ' &bull; <a href="s/'+obj.share+'" >Link</a>');
+$('info').html('Bài Hát: ' + obj.song + '  &bull; Ca Sĩ: '+obj.singer+' &bull; <a href="'+obj.url+'" target="_blank">Tải Về</a>' + ' &bull; <a href="s/'+obj.share+'" >Link</a>');
 document.title = 'Bài Hát: '+obj.song + ' | Ca Sĩ: '+obj.singer+' | Lite Music | mp3.familug.org';
 });
 </script>
