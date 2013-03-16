@@ -1,3 +1,13 @@
+<script src="../resources/js/jquery.min.js"></script>
+        <script src="../resources/js/myjs.js"></script>
+        <script src="../resources/js/bootstrap.min.js"></script>
+        
+          <script src="../build/mediaelement-and-player.min.js"></script>
+    
+        <link rel="stylesheet" href="../build/mediaelementplayer.min.css" />
+<link href="../resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../resources/css/mycss.css" rel="stylesheet">
+    <link href="../resources/css/bootstrap-responsive.min.css" rel="stylesheet">
 <?
 	if(!isset($_GET['sid'])) header("Location:../index.html");
 
@@ -9,7 +19,7 @@
 
   if(empty($song['name'])) header("Location:../index.html");
 
-  <? include "player.php"; ?>
+  include "player.php";
 ?>
 
 <!DOCTYPE html>
@@ -22,10 +32,6 @@
     <meta name="author" content="lamdt">
 
     <!-- Le styles -->
-    <link href="../resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../resources/css/mycss.css" rel="stylesheet">
-    <link href="../resources/css/bootstrap-responsive.min.css" rel="stylesheet">
-
     <script type="text/javascript">
     var page = 1;
     </script>
@@ -54,13 +60,7 @@
         
         </div>
 
-        <script src="../resources/js/jquery.min.js"></script>
-        <script src="../resources/js/myjs.js"></script>
-        <script src="../resources/js/bootstrap.min.js"></script>
         
-        	<script src="../build/mediaelement-and-player.min.js"></script>
-		
-		    <link rel="stylesheet" href="../build/mediaelementplayer.min.css" />
 
 			<br>
 			<center>
@@ -101,7 +101,6 @@
             po.src = 'https://apis.google.com/js/plusone.js';
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
           })();
-        });  
       </script>
       <img src="../logo.jpg" style="display: none;">
       <script type="text/javascript">
