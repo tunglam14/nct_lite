@@ -21,7 +21,6 @@ foreach($dom->getElementsByTagName('info') as $v)
 
 ?>
 <script src="build/mediaelement-and-player.min.js"></script>
-
 <link rel="stylesheet" href="build/mediaelementplayer.min.css" />
 
 

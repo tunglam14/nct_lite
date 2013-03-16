@@ -1,13 +1,11 @@
 <script src="../resources/js/jquery.min.js"></script>
-        <script src="../resources/js/myjs.js"></script>
-        <script src="../resources/js/bootstrap.min.js"></script>
         
-          <script src="../build/mediaelement-and-player.min.js"></script>
+<script src="../build/mediaelement-and-player.min.js"></script>
     
         <link rel="stylesheet" href="../build/mediaelementplayer.min.css" />
 <link href="../resources/css/bootstrap.min.css" rel="stylesheet">
     <link href="../resources/css/mycss.css" rel="stylesheet">
-    <link href="../resources/css/bootstrap-responsive.min.css" rel="stylesheet">
+    
 <?
 	if(!isset($_GET['sid'])) header("Location:../index.html");
 
@@ -26,11 +24,13 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Lite Music | mp3.familug.org</title>
+    <title>Bài Hát: <?= $song['name'] ?> &bull; <?= $song['singer'] ?> | Lite Music | mp3.familug.org</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Tìm Cái - Nghe Luôn">
     <meta name="author" content="lamdt">
-
+    <link href="../resources/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <script src="../resources/js/myjs.js"></script>
+    <script src="../resources/js/bootstrap.min.js"></script>
     <!-- Le styles -->
     <script type="text/javascript">
     var page = 1;
