@@ -8,6 +8,8 @@
   $song = $data;
 
   if(empty($song['name'])) header("Location:../index.html");
+
+  <? include "player.php"; ?>
 ?>
 
 <!DOCTYPE html>
@@ -59,7 +61,6 @@
         	<script src="../build/mediaelement-and-player.min.js"></script>
 		
 		    <link rel="stylesheet" href="../build/mediaelementplayer.min.css" />
-		    <? include "player.php"; ?>
 
 			<br>
 			<center>
