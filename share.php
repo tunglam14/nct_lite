@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
 
-      
+
 <?
 	if(!isset($_GET['sid'])) header("Location:../index.html");
 
@@ -16,7 +16,6 @@
   if(empty($song['name'])) header("Location:../index.html");
 
 ?>
-    <title> <?= utf8_encode('Bài Hát:') ?>  <?= $song['name'] ?> &bull; <?= $song['singer'] ?> | Lite Music | mp3.familug.org</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Tìm Cái - Nghe Luôn">
     <meta name="author" content="lamdt">
@@ -37,7 +36,7 @@
       <script src="../resources/js/html5shiv.js"></script>
     <![endif]-->
     <link rel="icon" href="http://www.favicon.cc/favicon/97/603/favicon.ico" type="image/x-icon">
-
+    <title>Bài Hát: <?= $song['name'] ?> &bull; <?= $song['singer'] ?> | Lite Music | mp3.familug.org</title>
 </head>
 
 <body>
