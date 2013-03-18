@@ -13,5 +13,5 @@
 		loop: true,
 		features: ['playpause','progress','current','duration','tracks','volume'],
 	});
-	// document.title = 'Bài Hát: <?= $song['name'] ?> | Ca Sĩ: <?= $song['singer'] ?> | Lite Music | mp3.familug.org';
+	document.title = 'Bài Hát: <?= $song['name'] ?> | Ca Sĩ: <?= $song['singer'] ?> | Lite Music | mp3.familug.org';
 </script>

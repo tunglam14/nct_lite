@@ -52,7 +52,6 @@
     <!-- Le styles -->
     <script type="text/javascript">
     var page = 1;
-    document.title = "Bài Hát: <?= $song['name'] ?> &bull; <?= $song['singer'] ?> | Lite Music | mp3.familug.org";
     </script>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -60,7 +59,7 @@
       <script src="../resources/js/html5shiv.js"></script>
     <![endif]-->
     <link rel="icon" href="http://www.favicon.cc/favicon/97/603/favicon.ico" type="image/x-icon">
-    <!-- <title><?= vn_str_filter($song['name'].' &bull; '.$song['singer'].' | Lite Music | mp3.familug.org'); ?></title> -->
+    <title><?= vn_str_filter($song['name'].' &bull; '.$song['singer'].' | Lite Music | mp3.familug.org'); ?></title>
 </head>
 
 <body>
