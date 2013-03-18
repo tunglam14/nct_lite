@@ -15,6 +15,29 @@
 
   if(empty($song['name'])) header("Location:../index.html");
 
+  function vn_str_filter ($str){
+        $unicode = array(
+            'a'=>'á|à|ả|ã|ạ|ă|ắ|ặ|ằ|ẳ|ẵ|â|ấ|ầ|ẩ|ẫ|ậ',
+            'd'=>'đ',
+            'e'=>'é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ',
+            'i'=>'í|ì|ỉ|ĩ|ị',
+            'o'=>'ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ',
+            'u'=>'ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự',
+            'y'=>'ý|ỳ|ỷ|ỹ|ỵ',
+      'A'=>'Á|À|Ả|Ã|Ạ|Ă|Ắ|Ặ|Ằ|Ẳ|Ẵ|Â|Ấ|Ầ|Ẩ|Ẫ|Ậ',
+            'D'=>'Đ',
+            'E'=>'É|È|Ẻ|Ẽ|Ẹ|Ê|Ế|Ề|Ể|Ễ|Ệ',
+            'I'=>'Í|Ì|Ỉ|Ĩ|Ị',
+            'O'=>'Ó|Ò|Ỏ|Õ|Ọ|Ô|Ố|Ồ|Ổ|Ỗ|Ộ|Ơ|Ớ|Ờ|Ở|Ỡ|Ợ',
+            'U'=>'Ú|Ù|Ủ|Ũ|Ụ|Ư|Ứ|Ừ|Ử|Ữ|Ự',
+            'Y'=>'Ý|Ỳ|Ỷ|Ỹ|Ỵ',
+        );
+        
+       foreach($unicode as $nonUnicode=>$uni){
+            $str = preg_replace("/($uni)/i", $nonUnicode, $str);
+       }
+    return $str;
+  }
 ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Tìm Cái - Nghe Luôn">
@@ -29,6 +52,7 @@
     <!-- Le styles -->
     <script type="text/javascript">
     var page = 1;
+    document.title = "Bài Hát: <?= $song['name'] ?> &bull; <?= $song['singer'] ?> | Lite Music | mp3.familug.org";
     </script>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -36,7 +60,7 @@
       <script src="../resources/js/html5shiv.js"></script>
     <![endif]-->
     <link rel="icon" href="http://www.favicon.cc/favicon/97/603/favicon.ico" type="image/x-icon">
-    <title>Bài Hát: <?= $song['name'] ?> &bull; <?= $song['singer'] ?> | Lite Music | mp3.familug.org</title>
+    <!-- <title><?= vn_str_filter($song['name'].' &bull; '.$song['singer'].' | Lite Music | mp3.familug.org'); ?></title> -->
 </head>
 
 <body>
