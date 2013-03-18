@@ -29,6 +29,8 @@ if(isset($_POST['keyword']) and $_POST['keyword'] != '')
 	$entries = $xpath->query("//*[contains(concat(' ', normalize-space(@class), ' '), ' $classname ')]");
 
 	echo '<table class="table table-hover">';
+
+	if (($entries->length == 0)) echo "Không có kết quả tìm kiếm tại trang: ".$page.". Vui lòng lại hoặc tìm bài khác.";
 	foreach ($entries as $entry) {
 		echo '<tr>';
 		foreach($entry->childNodes as $i => $song)
