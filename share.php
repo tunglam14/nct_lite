@@ -83,7 +83,7 @@
 
 			<br>
 			<center>
-			<a href="http://<?= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"] ?>" >Link</a> | <a href="<?= $song ?>" target="_blank">Download</a>
+			<a href="http://<?= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"] ?>" >Link</a> | <a href="<?= $song ?>" target="_blank">Download</a> | <a target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://mp3.familug.org/s/<?= @$song['key'] ?>">Gửi lên Facebook</a>
 			</center>
 
 		<script>
