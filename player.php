@@ -9,7 +9,7 @@
 
 <script type="text/javascript">
 	$('audio,video').mediaelementplayer({
-		startVolume: 0.5,
+		startVolume:1,
 		loop: true,
 		features: ['playpause','progress','current','duration','tracks','volume'],
 	});

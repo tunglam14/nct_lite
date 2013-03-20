@@ -9,6 +9,7 @@
 function playsong()
 {
 	var player = new MediaElementPlayer('#player2',{
+	startVolume: 1,
 	success: function (mediaElement, domObject) {
         
         mediaElement.addEventListener('ended', function(e) {
