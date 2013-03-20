@@ -44,13 +44,15 @@ if(isset($_POST['keyword']) and $_POST['keyword'] != '')
 						// get h4 tag
 						if(@$info->tagName == 'h4') {
 							// get a tag
-						foreach ($info->childNodes as $i) {
-							if(@$i->tagName == 'a') 
+						foreach ($info->childNodes as $y) {
+							if($y->childNodes != null)
+							foreach ($y->childNodes as $key => $i) {
+								if(@$i->tagName == 'a') 
 								{
 									foreach ($i->attributes as $v) {
 										// get href attr in a tag
 										if($v->name == 'href')
-											echo '<a class="song" href="#" link="'.$v->value.'">'.trim($song->nodeValue).'</a>';
+											echo '<a class="song" href="#" link="'.$v->value.'">'.trim($i->nodeValue).'</a>';
 										if($v->name == 'class')
 										{
 											switch ($v->value) {
@@ -69,6 +71,7 @@ if(isset($_POST['keyword']) and $_POST['keyword'] != '')
 									}
 										
 								}
+							}// end foreach i
 						}
 						}
 						// }
