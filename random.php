@@ -1,6 +1,6 @@
 <?
 $dom = new DOMDocument();
-@$dom->loadXML(file_get_contents('http://www.nhaccuatui.com/flash/xml?key2=6b6b05ead29f30b190f4ebdf565dc52d'));
+@$dom->loadXML(file_get_contents('http://www.nhaccuatui.com/flash/xml?key2=358bd7a57f4e58990ee4f95a5fae0118'));
 
 $data = array();
 foreach($dom->getElementsByTagName('title') as $v)
