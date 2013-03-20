@@ -57,10 +57,10 @@ if(isset($_POST['keyword']) and $_POST['keyword'] != '')
 										{
 											switch ($v->value) {
 												case 'mof':
-													echo '<span class="label">official</span>';
+													// echo '<span class="label">official</span>';
 													break;
 												case 'm320':
-													echo '<span class="label label-success">320 kbps</span>';
+													// echo '<span class="label label-success">320 kbps</span>';
 													break;
 												
 												default:
