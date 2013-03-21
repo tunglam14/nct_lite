@@ -28,11 +28,12 @@ if(isset($_POST['keyword']) and $_POST['keyword'] != '')
 	$xpath = new DOMXPath($dom);
 	$entries = $xpath->query("//*[contains(concat(' ', normalize-space(@class), ' '), ' $classname ')]");
 
-	echo '<table class="table table-hover">';
+	echo '<table class="table table-condensed" style="font-size: 12px">';
 
 	if (($entries->length == 0)) echo "Không có kết quả tìm kiếm tại trang: ".$page.". Vui lòng lại hoặc tìm bài khác.";
+	$__i = 0;
 	foreach ($entries as $entry) {
-		echo '<tr>';
+		echo '<tr class="'.( $__i++ % 2 == 0 ? 'info' : '').'" >';
 		foreach($entry->childNodes as $i => $song)
 		{
 			// echo $i.'-'.var_dump($song).'<br><br><br><br><br>';
