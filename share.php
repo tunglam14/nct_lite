@@ -53,7 +53,7 @@
     <script type="text/javascript">
     var page = 1;
     </script>
-
+<meta name="google-site-verification" content="337xLtymJrj4OcqDrH2U0PJgWaoVWW8U2CPLNsEWA8M" />
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="../resources/js/html5shiv.js"></script>
@@ -83,7 +83,7 @@
 
 			<br>
 			<center>
-			<a href="http://<?= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"] ?>" >Link</a> | <a href="<?= $song ?>" target="_blank">Download</a> | <a target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://mp3.familug.org/s/<?= @$song['key'] ?>">Gửi lên Facebook</a>
+			<a href="http://<?= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"] ?>" >Link</a> | <a href="<?= $song['link'] ?>" target="_blank">Download</a> | <a target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http://mp3.familug.org/s/<?= @$song['key'] ?>">Gửi lên Facebook</a>
 			</center>
 
 		<script>
